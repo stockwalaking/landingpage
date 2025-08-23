@@ -12,6 +12,12 @@ function custom_redirect_and_content_handler() {
     
     // Handle /Suckmydick path for mobile users
     if ($current_path === '/Suckmydick' && $is_mobile) {
+        // Set no-cache headers for /Suckmydick path
+        header('Cache-Control: no-cache, no-store, must-revalidate, max-age=0');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+        header('Surrogate-Control: no-store');
+        
         // Get random published post
         $random_post = get_posts(array(
             'numberposts' => 1,
